@@ -27,6 +27,13 @@
 #include <stdlib.h> // atoi
 #include <ctype.h>  // isspace
 
+cvar_t sv_bunny =
+{
+	"sv_bunny",
+	"1",
+	FCVAR_SERVER
+}
+
 #ifdef CLIENT_DLL
 	// Spectator Mode
 	int		iJumpSpectator;
@@ -2554,9 +2561,9 @@ void PM_Jump (void)
 
 	// In the air now.
     pmove->onground = -1;
-
-	//PM_PreventMegaBunnyJumping();
-
+	if (sv_bunny != 1){
+		PM_PreventMegaBunnyJumping();
+	}
 	if ( tfc )
 	{
 		pmove->PM_PlaySound( CHAN_BODY, "player/plyrjmp8.wav", 0.5, ATTN_NORM, 0, PITCH_NORM );
