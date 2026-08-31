@@ -34,6 +34,14 @@
 #include "soundent.h"
 #include "gamerules.h"
 
+//Elkskinn: Define aggro-kill cvar
+cvar_t sv_kill_on_aggro =
+{
+    "sv_kill_on_aggro",
+    "1",        // Enabled by default
+    FCVAR_SERVER
+};
+
 #define MONSTER_CUT_CORNER_DIST		8 // 8 means the monster's bounding box is contained without the box of the node in WC
 
 
@@ -45,7 +53,24 @@ extern DLL_GLOBAL	short	g_sModelIndexLaserDot;// holds the index for the laser b
 
 extern CGraph WorldGraph;// the world node graph
 
+// Elkskinn: Function to kill player the moment an enemy's enemy is set to the player, i.e., when an enemy is aggroed.
+void AggroKill()
+{
+	if (m_hEnemy && m_hEnemy->IsPlayer())
+	{
+    CBasePlayer *pPlayer =
+        static_cast<CBasePlayer *>(m_hEnemy.GetEntity());
 
+    if (pPlayer && pPlayer->pev->deadflag == DEAD_NO)
+    {
+        pPlayer->TakeDamage(
+            this,
+            this,
+            pPlayer->pev->health + 1.0f,
+            DMG_GENERIC
+        );
+    }
+}
 
 // Global Savedata for monster
 // UNDONE: Save schedule data?  Can this be done?  We may
@@ -3402,6 +3427,12 @@ BOOL CBaseMonster :: GetEnemy ( void )
 	if ( m_hEnemy != NULL )
 	{
 		// monster has an enemy.
+		// Elkskinn: Kill enemy on getenemy check as long as the cvar is set to 1
+		if (sv_kill_on_aggro == 1)
+		{
+			AggroKill();
+			return TRUE;
+		}
 		return TRUE;
 	}
 
