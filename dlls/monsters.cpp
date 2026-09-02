@@ -61,17 +61,17 @@ void AggroKill()
     CBasePlayer *pPlayer =
         static_cast<CBasePlayer *>(m_hEnemy.GetEntity());
 
-    if (pPlayer && pPlayer->pev->deadflag == DEAD_NO)
-    {
-        pPlayer->TakeDamage(
-            this,
-            this,
-            pPlayer->pev->health + 1.0f,
-            DMG_GENERIC
-        );
-    }
+    	if (pPlayer && pPlayer->pev->deadflag == DEAD_NO)
+    	{
+        	pPlayer->TakeDamage(
+            	this,
+            	this,
+        		pPlayer->pev->health + 1.0f,
+            	DMG_GENERIC
+        	);
+    	}
+	}
 }
-
 // Global Savedata for monster
 // UNDONE: Save schedule data?  Can this be done?  We may
 // lose our enemy pointer or other data (goal ent, target, etc)
