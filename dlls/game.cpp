@@ -460,6 +460,7 @@ void GameDLLInit( void )
 	g_psv_aim = CVAR_GET_POINTER( "sv_aim" );
 	g_footsteps = CVAR_GET_POINTER( "mp_footsteps" );
 
+	CVAR_REGISTER (&sv_pogo);
 	CVAR_REGISTER (&sv_bunny);
 	CVAR_REGISTER (&sv_kill_on_aggro);
 	CVAR_REGISTER (&displaysoundlist);
