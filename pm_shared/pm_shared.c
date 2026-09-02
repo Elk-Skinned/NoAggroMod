@@ -27,18 +27,6 @@
 #include <stdlib.h> // atoi
 #include <ctype.h>  // isspace
 
-cvar_t sv_pogo = {
-	"sv_pogo",
-	"1",
-	FCVAR_SERVER
-}
-
-cvar_t sv_bunny = {
-	"sv_bunny",
-	"1",
-	FCVAR_SERVER
-}
-
 #ifdef CLIENT_DLL
 	// Spectator Mode
 	int		iJumpSpectator;
