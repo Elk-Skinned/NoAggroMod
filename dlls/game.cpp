@@ -38,9 +38,9 @@ cvar_t	teamlist = {"mp_teamlist","hgrunt;scientist", FCVAR_SERVER };
 cvar_t	teamoverride = {"mp_teamoverride","1" };
 cvar_t	defaultteam = {"mp_defaultteam","0" };
 cvar_t	allowmonsters={"mp_allowmonsters","0", FCVAR_SERVER };
-cvar_t sv_pogo = { "sv_pogo", "1", FCVAR_SERVER}
-
-cvar_t sv_bunny = {	"sv_bunny", "1", FCVAR_SERVER}
+cvar_t	sv_pogo = {"sv_pogo", "1", FCVAR_SERVER}
+cvar_t	sv_npc_abuse_after_restore = {"sv_npc_abuse_after_restore", "1", FCVAR_SERVER}
+cvar_t 	sv_bunny = {"sv_bunny", "1", FCVAR_SERVER}
 cvar_t  allow_spectators = { "allow_spectators", "0.0", FCVAR_SERVER };		// 0 prevents players from being spectators
 
 cvar_t  mp_chattime = {"mp_chattime","10", FCVAR_SERVER };
@@ -462,6 +462,7 @@ void GameDLLInit( void )
 	g_psv_aim = CVAR_GET_POINTER( "sv_aim" );
 	g_footsteps = CVAR_GET_POINTER( "mp_footsteps" );
 
+	CVAR_REGISTER (&sv_npc_abuse_after_restore);
 	CVAR_REGISTER (&sv_pogo);
 	CVAR_REGISTER (&sv_bunny);
 	CVAR_REGISTER (&sv_kill_on_aggro);

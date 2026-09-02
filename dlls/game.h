@@ -38,6 +38,7 @@ extern cvar_t	defaultteam;
 extern cvar_t	allowmonsters;
 extern cvar_t   sv_bunny;
 extern cvar_t   sv_pogo;
+extern cvar_t   sv_npc_abuse_after_restore;
 
 // Engine Cvars
 extern cvar_t	*g_psv_gravity;
