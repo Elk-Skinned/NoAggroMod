@@ -27,8 +27,13 @@
 #include <stdlib.h> // atoi
 #include <ctype.h>  // isspace
 
-cvar_t sv_bunny =
-{
+cvar_t sv_pogo = {
+	"sv_pogo",
+	"1",
+	FCVAR_SERVER
+}
+
+cvar_t sv_bunny = {
 	"sv_bunny",
 	"1",
 	FCVAR_SERVER
@@ -2555,10 +2560,11 @@ void PM_Jump (void)
 		pmove->oldbuttons |= IN_JUMP;	// don't jump again until released
 		return;		// in air, so no effect
 	}
-
-	if ( pmove->oldbuttons & IN_JUMP )
-		return;		// don't pogo stick
-
+	if (sv_pogo.value != 1) {
+		if ( pmove->oldbuttons & IN_JUMP ) {
+			return;		// don't pogo stick
+		}
+	}
 	// In the air now.
     pmove->onground = -1;
 	if (sv_bunny != 1){
