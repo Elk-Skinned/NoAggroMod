@@ -163,6 +163,9 @@ int CBaseMonster::Restore( CRestore &restore )
 	if ( m_hEnemy == NULL )
 		m_afConditions = 0;
 
+	// Force NPC Abuse to work after save-load
+	m_afCapability = bits_CAP_OPEN_DOORS | bits_CAP_AUTO_DOORS | bits_CAP_USE;
+
 	return status;
 }
 
