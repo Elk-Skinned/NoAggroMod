@@ -24,7 +24,6 @@ cvar_t	fragsleft	= {"mp_fragsleft","0", FCVAR_SERVER | FCVAR_UNLOGGED };	  // Do
 cvar_t	timeleft	= {"mp_timeleft","0" , FCVAR_SERVER | FCVAR_UNLOGGED };	  // "      "
 
 // multiplayer server rules
-cvar_t	sv_preserve_grenade = {"sv_preserve_grenade", "1", FCVAR_SERVER};
 cvar_t	teamplay	= {"mp_teamplay","0", FCVAR_SERVER };
 cvar_t	fraglimit	= {"mp_fraglimit","0", FCVAR_SERVER };
 cvar_t	timelimit	= {"mp_timelimit","0", FCVAR_SERVER };
@@ -463,7 +462,6 @@ void GameDLLInit( void )
 	g_psv_aim = CVAR_GET_POINTER( "sv_aim" );
 	g_footsteps = CVAR_GET_POINTER( "mp_footsteps" );
 
-	CVAR_REGISTER (&sv_preserve_grenade);
 	CVAR_REGISTER (&sv_npc_abuse_after_restore);
 	CVAR_REGISTER (&sv_pogo);
 	CVAR_REGISTER (&sv_bunny);

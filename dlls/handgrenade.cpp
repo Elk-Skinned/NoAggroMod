@@ -19,7 +19,6 @@
 #include "weapons.h"
 #include "nodes.h"
 #include "player.h"
-#include "game.h"
 
 
 #define	HANDGRENADE_PRIMARY_VOLUME		450
@@ -35,23 +34,9 @@ enum handgrenade_e {
 	HANDGRENADE_DRAW
 };
 
-//Elkskinn
-const float nogrenadesaved = 0.0;
 
 LINK_ENTITY_TO_CLASS( weapon_handgrenade, CHandGrenade );
 
-//Elkskinn
-void CHandGrenade::SaveGrenadeTime() {
-	if (m_flStartThrow > 0 && m_flReleaseThrow != 1) {
-		float GrenadeTime = m_flStartThrow - gpGlobals->time; } else {float GrenadeTime = nogrenadesaved;}
-}
-
-float CHandGrenade::LoadGrenadeTime() {
-	if(GrenadeTime > nogrenadesaved && sv_preserve_grenade.value == 1 && !m_flStartThrow) {
-		return GrenadeTime;
-	}
-	return nogrenadesaved;
-}
 
 void CHandGrenade::Spawn( )
 {
@@ -66,8 +51,8 @@ void CHandGrenade::Spawn( )
 	m_iDefaultAmmo = HANDGRENADE_DEFAULT_GIVE;
 
 	FallInit();// get ready to fall down.
-	m_flStartThrow = gpGlobals->time - CHandGrenade::LoadGrenadeTime();
 }
+
 
 void CHandGrenade::Precache( void )
 {
@@ -130,14 +115,12 @@ void CHandGrenade::PrimaryAttack()
 	if ( !m_flStartThrow && m_pPlayer->m_rgAmmo[ m_iPrimaryAmmoType ] > 0 )
 	{
 		m_flStartThrow = gpGlobals->time;
-		float GrenadeTime;
 		m_flReleaseThrow = 0;
 
 		SendWeaponAnim( HANDGRENADE_PINPULL );
 		m_flTimeWeaponIdle = UTIL_WeaponTimeBase() + 0.5;
 	}
 }
-
 
 
 void CHandGrenade::WeaponIdle( void )
