@@ -19,7 +19,7 @@
 #include "weapons.h"
 #include "nodes.h"
 #include "player.h"
-
+#include "game.h"
 
 #define	HANDGRENADE_PRIMARY_VOLUME		450
 
@@ -37,6 +37,54 @@ enum handgrenade_e {
 
 LINK_ENTITY_TO_CLASS( weapon_handgrenade, CHandGrenade );
 
+/*Elkskinn grenades*/
+void CHandGrenade::SaveChargeToPlayer()
+{
+    if (!m_pPlayer)
+        return;
+
+    if (sv_persist_grenade_charge.value != 1)
+    {
+        m_pPlayer->m_flGrenadeStartThrow = 0.0f;
+        m_pPlayer->m_flGrenadeReleaseThrow = -1.0f;
+        return;
+    }
+
+    m_pPlayer->m_flGrenadeStartThrow = m_flStartThrow;
+    m_pPlayer->m_flGrenadeReleaseThrow = m_flReleaseThrow;
+}
+
+void CHandGrenade::RestoreChargeFromPlayer()
+{
+    if (!m_pPlayer)
+        return;
+
+    if (sv_persist_grenade_charge.value != 1)
+    {
+        m_flStartThrow = 0.0f;
+        m_flReleaseThrow = -1.0f;
+        return;
+    }
+
+    if (m_flStartThrow == 0.0f &&
+        m_pPlayer->m_flGrenadeStartThrow > 0.0f)
+    {
+        m_flStartThrow =
+            m_pPlayer->m_flGrenadeStartThrow;
+
+        m_flReleaseThrow =
+            m_pPlayer->m_flGrenadeReleaseThrow;
+    }
+}
+
+void CHandGrenade::ClearPlayerCharge()
+{
+    if (!m_pPlayer)
+        return;
+
+    m_pPlayer->m_flGrenadeStartThrow = 0.0f;
+    m_pPlayer->m_flGrenadeReleaseThrow = -1.0f;
+}
 
 void CHandGrenade::Spawn( )
 {
@@ -83,6 +131,7 @@ BOOL CHandGrenade::Deploy( )
 {
 	m_flReleaseThrow = -1;
 	return DefaultDeploy( "models/v_grenade.mdl", "models/p_grenade.mdl", HANDGRENADE_DRAW, "crowbar" );
+	RestoreChargeFromPlayer();
 }
 
 BOOL CHandGrenade::CanHolster( void )
@@ -120,8 +169,8 @@ void CHandGrenade::PrimaryAttack()
 		SendWeaponAnim( HANDGRENADE_PINPULL );
 		m_flTimeWeaponIdle = UTIL_WeaponTimeBase() + 0.5;
 	}
+	SaveChargeToPlayer();
 }
-
 
 void CHandGrenade::WeaponIdle( void )
 {
@@ -193,6 +242,7 @@ void CHandGrenade::WeaponIdle( void )
 	{
 		// we've finished the throw, restart.
 		m_flStartThrow = 0;
+		ClearPlayerCharge();
 
 		if ( m_pPlayer->m_rgAmmo[ m_iPrimaryAmmoType ] )
 		{

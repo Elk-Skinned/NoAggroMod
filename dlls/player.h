@@ -130,6 +130,10 @@ public:
 	unsigned int		m_afPhysicsFlags;	// physics flags - set when 'normal' physics should be revisited or overriden
 	float				m_fNextSuicideTime; // the time after which the player can next use the suicide command
 
+/*	Elkskinn: Grenade tomfoolery >:3 */
+
+    float 				m_flGrenadeStartThrow;
+    float 				m_flGrenadeReleaseThrow;
 
 // these are time-sensitive things that we keep track of
 	float				m_flTimeStepSound;	// when the last stepping sound was made

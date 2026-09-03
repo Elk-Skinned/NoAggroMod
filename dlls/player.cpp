@@ -117,6 +117,11 @@ TYPEDESCRIPTION	CBasePlayer::m_playerSaveData[] =
 	DEFINE_FIELD( CBasePlayer, m_pTank, FIELD_EHANDLE ),
 	DEFINE_FIELD( CBasePlayer, m_iHideHUD, FIELD_INTEGER ),
 	DEFINE_FIELD( CBasePlayer, m_iFOV, FIELD_INTEGER ),
+
+	/*Elkskinn grenade*/
+	
+    DEFINE_FIELD(CBasePlayer, m_flGrenadeStartThrow, FIELD_TIME),
+    DEFINE_FIELD(CBasePlayer, m_flGrenadeReleaseThrow, FIELD_TIME),
 	
 	//DEFINE_FIELD( CBasePlayer, m_fDeadTime, FIELD_FLOAT ), // only used in multiplayer games
 	//DEFINE_FIELD( CBasePlayer, m_fGameHUDInitialized, FIELD_INTEGER ), // only used in multiplayer games
@@ -146,7 +151,6 @@ TYPEDESCRIPTION	CBasePlayer::m_playerSaveData[] =
 	//DEFINE_FIELD( CBasePlayer, m_nCustomSprayFrames, FIELD_INTEGER ), // Don't need to restore
 	
 };	
-
 
 int giPrecacheGrunt = 0;
 int gmsgShake = 0;
@@ -2870,6 +2874,12 @@ void CBasePlayer::Spawn( void )
 	m_bitsDamageType	= 0;
 	m_afPhysicsFlags	= 0;
 	m_fLongJump			= FALSE;// no longjump module. 
+
+	/* Elkskinn grenade shenanigans*/
+	m_flGrenadeStartThrow = 0.0f;
+	m_flGrenadeReleaseThrow = -1.0f;
+	m_fGrenadeDrawbackFinished = false;
+
 
 	g_engfuncs.pfnSetPhysicsKeyValue( edict(), "slj", "0" );
 	g_engfuncs.pfnSetPhysicsKeyValue( edict(), "hl", "1" );
