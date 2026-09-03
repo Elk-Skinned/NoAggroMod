@@ -898,6 +898,8 @@ class CHandGrenade : public CBasePlayerWeapon
 public:
 	void Spawn( void );
 	void Precache( void );
+	void SaveGrenadeTime(void);
+	float LoadGrenadeTime(void);
 	int iItemSlot( void ) { return 5; }
 	int GetItemInfo(ItemInfo *p);
 

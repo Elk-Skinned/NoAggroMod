@@ -86,6 +86,7 @@ TYPEDESCRIPTION	CBasePlayer::m_playerSaveData[] =
 	DEFINE_FIELD( CBasePlayer, m_flSwimTime, FIELD_TIME ),
 	DEFINE_FIELD( CBasePlayer, m_flDuckTime, FIELD_TIME ),
 	DEFINE_FIELD( CBasePlayer, m_flWallJumpTime, FIELD_TIME ),
+	DEFINE_FIELD( CBasePlayer, GrenadeTime, FIELD_TIME),
 
 	DEFINE_FIELD( CBasePlayer, m_flSuitUpdate, FIELD_TIME ),
 	DEFINE_ARRAY( CBasePlayer, m_rgSuitPlayList, FIELD_INTEGER, CSUITPLAYLIST ),
