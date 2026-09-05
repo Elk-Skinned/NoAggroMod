@@ -30,14 +30,8 @@ extern cvar_t sv_crowbar_full_damage;
 
 LINK_ENTITY_TO_CLASS( weapon_crowbar, CCrowbar );
 
-bool CrowbarCvar(){
-	switch (sv_crowbar_full_damage.value){
-		case 1.0f:
-			return TRUE;
-		default:
-			return FALSE;
-	}
-
+bool CrowbarCvarCheck(){
+	return (sv_crowbar_full_damage.value > 0.0f);
 }
 
 enum gauss_e {
@@ -242,7 +236,7 @@ int CCrowbar::Swing( int fFirst )
 
 		ClearMultiDamage( );
 
-		if ( ((m_flNextPrimaryAttack + 1 <= UTIL_WeaponTimeBase()) && CrowbarCvar) || g_pGameRules->IsMultiplayer || (m_flNextPrimaryAttack + 1 < UTIL_WeaponTimeBase()))
+		if ( ((m_flNextPrimaryAttack + 1 <= UTIL_WeaponTimeBase()) && CrowbarCvarCheck) || g_pGameRules->IsMultiplayer || (m_flNextPrimaryAttack + 1 < UTIL_WeaponTimeBase()))
 		{
 			// first swing does full damage
 			pEntity->TraceAttack(m_pPlayer->pev, gSkillData.plrDmgCrowbar, gpGlobals->v_forward, &tr, DMG_CLUB ); 
