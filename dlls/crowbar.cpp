@@ -38,7 +38,7 @@ bool CrowbarCvar(){
 			return FALSE;
 	}
 
-};
+}
 
 enum gauss_e {
 	CROWBAR_IDLE = 0,
