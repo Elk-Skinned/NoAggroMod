@@ -22,13 +22,23 @@
 #include "player.h"
 #include "gamerules.h"
 
+//Elkskinn
+extern cvar_t sv_crowbar_full_damage;
 
 #define	CROWBAR_BODYHIT_VOLUME 128
 #define	CROWBAR_WALLHIT_VOLUME 512
 
 LINK_ENTITY_TO_CLASS( weapon_crowbar, CCrowbar );
 
+bool CrowbarCvar(){
+	switch (sv_crowbar_full_damage.value){
+		case 1.0f:
+			return TRUE;
+		default:
+			return FALSE;
+	}
 
+};
 
 enum gauss_e {
 	CROWBAR_IDLE = 0,
@@ -232,17 +242,15 @@ int CCrowbar::Swing( int fFirst )
 
 		ClearMultiDamage( );
 
-		float dmgMultiplier = 1.5f;
-
-		if ( (m_flNextPrimaryAttack + 1 < UTIL_WeaponTimeBase() ) || g_pGameRules->IsMultiplayer() )
+		if ( ((m_flNextPrimaryAttack + 1 <= UTIL_WeaponTimeBase()) && CrowbarCvar) || g_pGameRules->IsMultiplayer || (m_flNextPrimaryAttack + 1 < UTIL_WeaponTimeBase()))
 		{
 			// first swing does full damage
-			pEntity->TraceAttack(m_pPlayer->pev, gSkillData.plrDmgCrowbar * dmgMultiplier, gpGlobals->v_forward, &tr, DMG_CLUB ); 
+			pEntity->TraceAttack(m_pPlayer->pev, gSkillData.plrDmgCrowbar, gpGlobals->v_forward, &tr, DMG_CLUB ); 
 		}
 		else
 		{
 			// subsequent swings do half
-			pEntity->TraceAttack(m_pPlayer->pev, gSkillData.plrDmgCrowbar * dmgMultiplier / 2, gpGlobals->v_forward, &tr, DMG_CLUB ); 
+			pEntity->TraceAttack(m_pPlayer->pev, gSkillData.plrDmgCrowbar / 2, gpGlobals->v_forward, &tr, DMG_CLUB ); 
 		}	
 		ApplyMultiDamage( m_pPlayer->pev, m_pPlayer->pev );
 

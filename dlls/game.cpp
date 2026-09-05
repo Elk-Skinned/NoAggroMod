@@ -18,6 +18,9 @@
 #include "game.h"
 
 cvar_t	displaysoundlist = {"displaysoundlist","0"};
+//Elkskinn
+cvar_t sv_singleplayer_vertical_gaussboost = { "sv_singleplayer_vertical_gaussboost", "0", FCVAR_SERVER };
+cvar_t sv_crowbar_full_damage = {"sv_crowbar_full_damage", "1", FCVAR_SERVER};
 
 // multiplayer server rules
 cvar_t	fragsleft	= {"mp_fragsleft","0", FCVAR_SERVER | FCVAR_UNLOGGED };	  // Don't spam console/log files/users with this changing
@@ -470,6 +473,8 @@ void GameDLLInit( void )
 	CVAR_REGISTER (&displaysoundlist);
 	CVAR_REGISTER( &allow_spectators );
 	CVAR_REGISTER (&sv_persist_grenade_charge);
+	CVAR_REGISTER (&sv_singleplayer_vertical_gaussboost);
+	CVAR_REGISTER (&sv_crowbar_full_damage);
 
 	CVAR_REGISTER (&teamplay);
 	CVAR_REGISTER (&fraglimit);
