@@ -24,9 +24,6 @@ void PM_Init( struct playermove_s *ppmove );
 void PM_Move ( struct playermove_s *ppmove, int server );
 char PM_FindTextureType( char *name );
 
-extern cvar_t sv_bunny;
-extern cvar_t sv_pogo;
-
 // Test for Git
 
 // Spectator Movement modes (stored in pev->iuser1, so the physics code can get at them)

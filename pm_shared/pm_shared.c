@@ -2548,16 +2548,14 @@ void PM_Jump (void)
 		pmove->oldbuttons |= IN_JUMP;	// don't jump again until released
 		return;		// in air, so no effect
 	}
-	if (sv_pogo.value != 1) {
-		if ( pmove->oldbuttons & IN_JUMP ) {
-			return;		// don't pogo stick
-		}
+	if ( pmove->oldbuttons & IN_JUMP ) {
+		return;		// don't pogo stick
 	}
 	// In the air now.
     pmove->onground = -1;
-	if (sv_bunny != 1){
-		PM_PreventMegaBunnyJumping();
-	}
+	
+	PM_PreventMegaBunnyJumping();
+	
 	if ( tfc )
 	{
 		pmove->PM_PlaySound( CHAN_BODY, "player/plyrjmp8.wav", 0.5, ATTN_NORM, 0, PITCH_NORM );
