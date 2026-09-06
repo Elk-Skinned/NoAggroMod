@@ -35,12 +35,7 @@
 #include "gamerules.h"
 
 //Elkskinn: Define aggro-kill cvar
-cvar_t sv_kill_on_aggro =
-{
-    "sv_kill_on_aggro",
-    "1",        // Enabled by default
-    FCVAR_SERVER
-};
+extern cvar_t sv_kill_on_aggro;
 
 #define MONSTER_CUT_CORNER_DIST		8 // 8 means the monster's bounding box is contained without the box of the node in WC
 
@@ -3433,11 +3428,7 @@ BOOL CBaseMonster :: GetEnemy ( void )
 	{
 		// monster has an enemy.
 		// Elkskinn: Kill enemy on getenemy check as long as the cvar is set to 1
-		if (sv_kill_on_aggro == 1)
-		{
-			AggroKill();
-			return TRUE;
-		}
+		if (sv_kill_on_aggro > 0.5f) AggroKill();
 		return TRUE;
 	}
 
