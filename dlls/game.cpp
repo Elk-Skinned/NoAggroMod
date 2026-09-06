@@ -19,6 +19,7 @@
 
 cvar_t	displaysoundlist = {"displaysoundlist","0"};
 //Elkskinn
+cvar_t monster_sight = {"sv_kill_on_monster_sight", "0", FCVAR_SERVER}; 
 cvar_t sv_singleplayer_vertical_gaussboost = { "sv_singleplayer_vertical_gaussboost", "0", FCVAR_SERVER };
 cvar_t sv_crowbar_full_damage = {"sv_crowbar_full_damage", "1", FCVAR_SERVER};
 
@@ -475,6 +476,7 @@ void GameDLLInit( void )
 	CVAR_REGISTER (&sv_persist_grenade_charge);
 	CVAR_REGISTER (&sv_singleplayer_vertical_gaussboost);
 	CVAR_REGISTER (&sv_crowbar_full_damage);
+	CVAR_REGISTER (&monster_sight);
 
 	CVAR_REGISTER (&teamplay);
 	CVAR_REGISTER (&fraglimit);
