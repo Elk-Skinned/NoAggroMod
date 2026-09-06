@@ -317,6 +317,3 @@ int CCrowbar::Swing( int fFirst )
 	}
 	return fDidHit;
 }
-
-
-
