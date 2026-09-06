@@ -1,9 +1,9 @@
 /***
 *
 *	Copyright (c) 1996-2001, Valve LLC. All rights reserved.
-*	
-*	This product contains software technology licensed from Id 
-*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
+*
+*	This product contains software technology licensed from Id
+*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc.
 *	All Rights Reserved.
 *
 *   Use, distribution, and modification of this source code and/or resulting
@@ -19,7 +19,7 @@
 
 cvar_t	displaysoundlist = {"displaysoundlist","0"};
 //Elkskinn
-cvar_t monster_sight = {"sv_kill_on_monster_sight", "0", FCVAR_SERVER}; 
+cvar_t monster_sight = {"sv_kill_on_monster_sight", "0", FCVAR_SERVER};
 cvar_t sv_singleplayer_vertical_gaussboost = { "sv_singleplayer_vertical_gaussboost", "0", FCVAR_SERVER };
 cvar_t sv_crowbar_full_damage = {"sv_crowbar_full_damage", "1", FCVAR_SERVER};
 cvar_t watergauss = {"sv_gauss_underwater", "0", FCVAR_SERVER};
@@ -143,7 +143,7 @@ cvar_t	sk_headcrab_dmg_bite2 = {"sk_headcrab_dmg_bite2","0"};
 cvar_t	sk_headcrab_dmg_bite3 = {"sk_headcrab_dmg_bite3","0"};
 
 
-// Hgrunt 
+// Hgrunt
 cvar_t	sk_hgrunt_health1 = {"sk_hgrunt_health1","0"};
 cvar_t	sk_hgrunt_health2 = {"sk_hgrunt_health2","0"};
 cvar_t	sk_hgrunt_health3 = {"sk_hgrunt_health3","0"};
@@ -182,7 +182,7 @@ cvar_t	sk_islave_dmg_claw3 = {"sk_islave_dmg_claw3","0"};
 cvar_t	sk_islave_dmg_clawrake1	= {"sk_islave_dmg_clawrake1","0"};
 cvar_t	sk_islave_dmg_clawrake2	= {"sk_islave_dmg_clawrake2","0"};
 cvar_t	sk_islave_dmg_clawrake3	= {"sk_islave_dmg_clawrake3","0"};
-	
+
 cvar_t	sk_islave_dmg_zap1 = {"sk_islave_dmg_zap1","0"};
 cvar_t	sk_islave_dmg_zap2 = {"sk_islave_dmg_zap2","0"};
 cvar_t	sk_islave_dmg_zap3 = {"sk_islave_dmg_zap3","0"};
@@ -392,24 +392,24 @@ cvar_t	sk_hornet_dmg3 = {"sk_hornet_dmg3","0"};
 
 // HEALTH/CHARGE
 cvar_t	sk_suitcharger1	= { "sk_suitcharger1","0" };
-cvar_t	sk_suitcharger2	= { "sk_suitcharger2","0" };		
-cvar_t	sk_suitcharger3	= { "sk_suitcharger3","0" };		
+cvar_t	sk_suitcharger2	= { "sk_suitcharger2","0" };
+cvar_t	sk_suitcharger3	= { "sk_suitcharger3","0" };
 
-cvar_t	sk_battery1	= { "sk_battery1","0" };			
-cvar_t	sk_battery2	= { "sk_battery2","0" };			
-cvar_t	sk_battery3	= { "sk_battery3","0" };			
+cvar_t	sk_battery1	= { "sk_battery1","0" };
+cvar_t	sk_battery2	= { "sk_battery2","0" };
+cvar_t	sk_battery3	= { "sk_battery3","0" };
 
-cvar_t	sk_healthcharger1	= { "sk_healthcharger1","0" };		
-cvar_t	sk_healthcharger2	= { "sk_healthcharger2","0" };		
-cvar_t	sk_healthcharger3	= { "sk_healthcharger3","0" };		
+cvar_t	sk_healthcharger1	= { "sk_healthcharger1","0" };
+cvar_t	sk_healthcharger2	= { "sk_healthcharger2","0" };
+cvar_t	sk_healthcharger3	= { "sk_healthcharger3","0" };
 
-cvar_t	sk_healthkit1	= { "sk_healthkit1","0" };		
-cvar_t	sk_healthkit2	= { "sk_healthkit2","0" };		
-cvar_t	sk_healthkit3	= { "sk_healthkit3","0" };		
+cvar_t	sk_healthkit1	= { "sk_healthkit1","0" };
+cvar_t	sk_healthkit2	= { "sk_healthkit2","0" };
+cvar_t	sk_healthkit3	= { "sk_healthkit3","0" };
 
-cvar_t	sk_scientist_heal1	= { "sk_scientist_heal1","0" };	
-cvar_t	sk_scientist_heal2	= { "sk_scientist_heal2","0" };	
-cvar_t	sk_scientist_heal3	= { "sk_scientist_heal3","0" };	
+cvar_t	sk_scientist_heal1	= { "sk_scientist_heal1","0" };
+cvar_t	sk_scientist_heal2	= { "sk_scientist_heal2","0" };
+cvar_t	sk_scientist_heal3	= { "sk_scientist_heal3","0" };
 
 
 // monster damage adjusters
@@ -585,7 +585,7 @@ void GameDLLInit( void )
 	CVAR_REGISTER ( &sk_headcrab_dmg_bite3 );// {"sk_headcrab_dmg_bite3","0"};
 
 
-	// Hgrunt 
+	// Hgrunt
 	CVAR_REGISTER ( &sk_hgrunt_health1 );// {"sk_hgrunt_health1","0"};
 	CVAR_REGISTER ( &sk_hgrunt_health2 );// {"sk_hgrunt_health2","0"};
 	CVAR_REGISTER ( &sk_hgrunt_health3 );// {"sk_hgrunt_health3","0"};
@@ -624,7 +624,7 @@ void GameDLLInit( void )
 	CVAR_REGISTER ( &sk_islave_dmg_clawrake1	);// {"sk_islave_dmg_clawrake1","0"};
 	CVAR_REGISTER ( &sk_islave_dmg_clawrake2	);// {"sk_islave_dmg_clawrake2","0"};
 	CVAR_REGISTER ( &sk_islave_dmg_clawrake3	);// {"sk_islave_dmg_clawrake3","0"};
-		
+
 	CVAR_REGISTER ( &sk_islave_dmg_zap1 );// {"sk_islave_dmg_zap1","0"};
 	CVAR_REGISTER ( &sk_islave_dmg_zap2 );// {"sk_islave_dmg_zap2","0"};
 	CVAR_REGISTER ( &sk_islave_dmg_zap3 );// {"sk_islave_dmg_zap3","0"};
@@ -900,4 +900,3 @@ void GameDLLInit( void )
 
 	SERVER_COMMAND( "exec skill.cfg\n" );
 }
-
