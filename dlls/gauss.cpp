@@ -25,6 +25,7 @@
 #include "shake.h"
 #include "gamerules.h"
 extern cvar_t sv_singleplayer_vertical_gaussboost;
+extern cvar_t watergauss;
 
 #define	GAUSS_PRIMARY_CHARGE_VOLUME	256// how loud gauss is while charging
 #define GAUSS_PRIMARY_FIRE_VOLUME	450// how loud gauss is when discharged
@@ -143,8 +144,9 @@ void CGauss::Holster( int skiplocal /* = 0 */ )
 
 void CGauss::PrimaryAttack()
 {
+	bool gauss_watergauss = ((watergauss.value > 0.5f) && (watergauss.value < 2.5f));
 	// don't fire underwater
-	if ( m_pPlayer->pev->waterlevel == 3 )
+	if ( m_pPlayer->pev->waterlevel == 3 && !gauss_watergauss)
 	{
 		PlayEmptySound( );
 		m_flNextSecondaryAttack = m_flNextPrimaryAttack = GetNextAttackDelay(0.15);
@@ -171,8 +173,9 @@ void CGauss::PrimaryAttack()
 
 void CGauss::SecondaryAttack()
 {
+	bool gauss_watergauss = ((watergauss.value > 0.5f) && (watergauss.value < 2.5f));
 	// don't fire underwater
-	if ( m_pPlayer->pev->waterlevel == 3 )
+	if ( m_pPlayer->pev->waterlevel == 3 && !gauss_watergauss)
 	{
 		if ( m_fInAttack != 0 )
 		{

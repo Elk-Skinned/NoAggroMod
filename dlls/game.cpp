@@ -22,6 +22,7 @@ cvar_t	displaysoundlist = {"displaysoundlist","0"};
 cvar_t monster_sight = {"sv_kill_on_monster_sight", "0", FCVAR_SERVER}; 
 cvar_t sv_singleplayer_vertical_gaussboost = { "sv_singleplayer_vertical_gaussboost", "0", FCVAR_SERVER };
 cvar_t sv_crowbar_full_damage = {"sv_crowbar_full_damage", "1", FCVAR_SERVER};
+cvar_t watergauss = {"sv_gauss_underwater", "0", FCVAR_SERVER};
 
 // multiplayer server rules
 cvar_t	fragsleft	= {"mp_fragsleft","0", FCVAR_SERVER | FCVAR_UNLOGGED };	  // Don't spam console/log files/users with this changing
@@ -473,6 +474,7 @@ void GameDLLInit( void )
 	CVAR_REGISTER (&sv_singleplayer_vertical_gaussboost);
 	CVAR_REGISTER (&sv_crowbar_full_damage);
 	CVAR_REGISTER (&monster_sight);
+	CVAR_REGISTER (&watergauss);
 
 	CVAR_REGISTER (&teamplay);
 	CVAR_REGISTER (&fraglimit);
