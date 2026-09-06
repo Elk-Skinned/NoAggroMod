@@ -51,20 +51,11 @@ extern CGraph WorldGraph;// the world node graph
 // Elkskinn: Function to kill player the moment an enemy's enemy is set to the player, i.e., when an enemy is aggroed.
 void AggroKill()
 {
-	if (m_hEnemy && m_hEnemy->IsPlayer())
-	{
-    CBasePlayer *pPlayer =
-        static_cast<CBasePlayer *>(m_hEnemy.GetEntity());
-
-    	if (pPlayer && pPlayer->pev->deadflag == DEAD_NO)
-    	{
-        	pPlayer->TakeDamage(
-            	this,
-            	this,
-        		pPlayer->pev->health + 1.0f,
-            	DMG_GENERIC
-        	);
-    	}
+	if (m_hEnemy && m_hEnemy->IsPlayer()) {
+        CBasePlayer *pPlayer =
+            static_cast<CBasePlayer *>(m_hEnemy.GetEntity());
+        if (pPlayer && pPlayer->pev->deadflag == DEAD_NO)
+            pPlayer->TakeDamage(this, this, pPlayer->pev->health + 1.0f, DMG_GENERIC);
 	}
 }
 // Global Savedata for monster
