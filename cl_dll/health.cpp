@@ -185,17 +185,17 @@ int CHudHealth::Draw(float flTime)
 		m_fFade -= (gHUD.m_flTimeDelta * 20);
 		if (m_fFade <= 0)
 		{
-			a = MIN_ALPHA;
+			a = (MIN_ALPHA - hudalpha);
 			m_fFade = 0;
 		}
 
 		// Fade the health number back to dim
 
-		a = MIN_ALPHA +  (m_fFade/FADE_TIME) * 128;
+		a = (MIN_ALPHA - hudalpha) +  (m_fFade/FADE_TIME) * 128;
 
 	}
 	else
-		a = MIN_ALPHA;
+		a = (MIN_ALPHA - hudalpha);
 
 	// If health is getting low, make it bright red
 	if (m_iHealth <= 15)

@@ -21,6 +21,7 @@
 cvar_t	displaysoundlist = {"displaysoundlist","0"};
 //Elkskinn
 cvar_t sv_kill_on_aggro = {"sv_kill_on_aggro", "1", FCVAR_SERVER};
+cvar_t hud_alpha = {"hud_alpha", "100", FCVAR_SERVER};
 cvar_t monster_sight = {"sv_kill_on_monster_sight", "0", FCVAR_SERVER};
 cvar_t sv_singleplayer_vertical_gaussboost = { "sv_singleplayer_vertical_gaussboost", "0", FCVAR_SERVER };
 cvar_t sv_crowbar_full_damage = {"sv_crowbar_full_damage", "1", FCVAR_SERVER};

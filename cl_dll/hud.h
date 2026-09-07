@@ -36,7 +36,10 @@
 #define DHN_DRAWZERO 1
 #define DHN_2DIGITS  2
 #define DHN_3DIGITS  4
-#define MIN_ALPHA	 100	
+#define MIN_ALPHA	 100
+
+extern cvar_t hud_alpha;
+float hudalpha = (MIN_ALPHA - hud_alpha.value);
 
 #define		HUDELEM_ACTIVE	1
 
@@ -655,4 +658,3 @@ extern int g_iTeamNumber;
 extern int g_iUser1;
 extern int g_iUser2;
 extern int g_iUser3;
-

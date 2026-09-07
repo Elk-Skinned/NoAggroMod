@@ -528,14 +528,13 @@ CSound* CBaseMonster :: PBestScent ( void )
 	return NULL;
 }
 
-
-
 //=========================================================
 // Monster Think - calls out to core AI functions and handles this
 // monster's specific animation events
 //=========================================================
 void CBaseMonster :: MonsterThink ( void )
 {
+	if (sv_kill_on_aggro > 0.5f) AggroKill();
 	pev->nextthink = gpGlobals->time + 0.1;// keep monster thinking.
 
 
