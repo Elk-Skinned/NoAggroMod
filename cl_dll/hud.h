@@ -37,10 +37,6 @@
 #define DHN_2DIGITS  2
 #define DHN_3DIGITS  4
 #define MIN_ALPHA	 100
-
-extern cvar_t hud_alpha;
-float hudalpha = (MIN_ALPHA - hud_alpha.value);
-
 #define		HUDELEM_ACTIVE	1
 
 typedef struct {

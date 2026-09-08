@@ -123,11 +123,11 @@ int CHudBattery::Draw(float flTime)
 
 		// Fade the health number back to dim
 
-		a = (MIN_ALPHA - hudalpha) +  (m_fFade/FADE_TIME) * 128;
+		a = (MIN_ALPHA) +  (m_fFade/FADE_TIME) * 128;
 
 	}
 	else
-		a = (MIN_ALPHA - hudalpha);
+		a = (MIN_ALPHA);
 
 	ScaleColors(r, g, b, a );
 	

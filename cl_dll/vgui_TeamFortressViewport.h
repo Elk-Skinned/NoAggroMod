@@ -1784,15 +1784,15 @@ public:
 			gHUD.m_Health.m_fFade -= (gHUD.m_flTimeDelta * 20);
 			if (gHUD.m_Health.m_fFade <= 0)
 			{
-				a = (MIN_ALPHA - hudalpha);
+				a = (MIN_ALPHA);
 				gHUD.m_Health.m_fFade = 0;
 			}
 
 			// Fade the health number back to dim
-			a = (MIN_ALPHA - hudalpha) +  (gHUD.m_Health.m_fFade/FADE_TIME) * 128;
+			a = (MIN_ALPHA) +  (gHUD.m_Health.m_fFade/FADE_TIME) * 128;
 		}
 		else
-			a = (MIN_ALPHA - hudalpha);
+			a = (MIN_ALPHA);
 
 		gHUD.m_Health.GetPainColor( r, g, b );
 		ScaleColors(r, g, b, a );

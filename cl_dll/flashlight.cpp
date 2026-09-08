@@ -108,7 +108,7 @@ int CHudFlashlight::Draw(float flTime)
 	if (m_fOn)
 		a = 225;
 	else
-		a = (MIN_ALPHA - hudalpha);
+		a = (MIN_ALPHA);
 
 	if (m_flBat < 0.20)
 		UnpackRGB(r,g,b, RGB_REDISH);
