@@ -33,6 +33,7 @@
 #include "decals.h"
 #include "soundent.h"
 #include "gamerules.h"
+#include "player.h"
 
 //Elkskinn: Define aggro-kill cvar
 extern cvar_t sv_kill_on_aggro;

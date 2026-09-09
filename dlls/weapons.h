@@ -906,6 +906,9 @@ public:
 	BOOL CanHolster( void );
 	void Holster( int skiplocal = 0 );
 	void WeaponIdle( void );
+	void SaveChargeToPlayer();
+	void RestoreChargeFromPlayer();
+	void ClearPlayerCharge();
 	
 	virtual BOOL UseDecrement( void )
 	{ 
