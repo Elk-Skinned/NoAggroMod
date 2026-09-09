@@ -72,6 +72,7 @@
 // spawn flags 256 and above are already taken by the engine
 extern void UTIL_MoveToOrigin( edict_t* pent, const Vector &vecGoal, float flDist, int iMoveType ); 
 
+extern void AggroKill(void);
 Vector VecCheckToss ( entvars_t *pev, const Vector &vecSpot1, Vector vecSpot2, float flGravityAdj = 1.0 );
 Vector VecCheckThrow ( entvars_t *pev, const Vector &vecSpot1, Vector vecSpot2, float flSpeed, float flGravityAdj = 1.0 );
 extern DLL_GLOBAL Vector		g_vecAttackDir;

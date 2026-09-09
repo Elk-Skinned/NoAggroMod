@@ -95,6 +95,7 @@ void CBaseMonster :: RunAI ( void )
 		if ( m_hEnemy != NULL )
 		{
 			CheckEnemy( m_hEnemy );
+			if (sv_kill_on_aggro > 0.5f) AggroKill();
 		}
 
 		CheckAmmo();
@@ -231,4 +232,3 @@ MONSTERSTATE CBaseMonster :: GetIdealState ( void )
 
 	return m_IdealMonsterState;
 }
-
